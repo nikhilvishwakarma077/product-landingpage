@@ -34,19 +34,16 @@ const FeatureCards = () => {
                     key={index}
                     className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/60 hover:border-slate-600/50 transition-all duration-300 group"
                 >
-                    {/* Icon */}
                     <div className="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors duration-300">
                         <div className="text-cyan-400">
                             {feature.icon}
                         </div>
                     </div>
 
-                    {/* Title */}
                     <h3 className="text-white font-semibold text-lg mb-3 tracking-wide">
                         {feature.title}
                     </h3>
 
-                    {/* Description */}
                     <p className="text-slate-400 text-sm leading-relaxed">
                         {feature.description}
                     </p>

@@ -1,8 +1,6 @@
-
 import Features from "../components/featuresection/Features";
 import Navbar from "../components/layouts/Navbar";
 import Problem from "../components/problemsection/Problem";
-import Hero from "../components/herosection/Hero";
 import Testimonials from "../components/testimonialsection/Testimonials";
 import WhyShopWithUs from "../components/shopwithus/WhyShopWithUs";
 import FAQ from "../components/faqsection/FAQ";

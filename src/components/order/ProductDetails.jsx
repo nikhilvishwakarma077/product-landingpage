@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Minus, Plus, CheckCircle, Battery, Bluetooth } from 'lucide-react';
+import { images } from '../../data/appData';
 
 const ProductDetails = ({ quantity, pricePerItem, handleQuantityChange }) => {
 
@@ -11,7 +12,7 @@ const ProductDetails = ({ quantity, pricePerItem, handleQuantityChange }) => {
                 </span>
                 <div className="aspect-square flex items-center justify-center">
                     <img
-                        src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczczLXBhaS0xNjMtbW9ja3VwLmpwZw.jpg"
+                        src={images.productImg}
                         alt="SonicPro Wireless Headphones"
                         className="w-full h-full object-contain drop-shadow-2xl"
                     />

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { CreditCard, Lock, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import Footer from '../layouts/Footer';
 import PaymentMethode from './PaymentMethode';
 import OrderSummary from './OrderSummary';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const PaymentPage = () => {
+    
     const navigate = useNavigate()
     const [paymentMethod, setPaymentMethod] = useState('card');
     const [cardDetails, setCardDetails] = useState({
@@ -37,6 +38,17 @@ const PaymentPage = () => {
         tax: 0.00
     };
 
+    const handlePayment = () => {
+        if (cardDetails.cardNumber === '' || cardDetails.expiryDate === "" || cardDetails.cvv === '' ||
+            cardDetails.cardholderName === '' ) {
+            toast.error("All fields are required!")
+            return
+        }
+        console.log(cardDetails)
+        navigate("/orderplaced")
+        toast.success("Order Placed Successfully!")
+    }
+
     const total = orderDetails.price + orderDetails.shipping + orderDetails.tax;
 
     return (
@@ -61,7 +73,7 @@ const PaymentPage = () => {
             <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-                    <PaymentMethode paymentMethod={paymentMethod} cardDetails={cardDetails} handleInputChange={handleInputChange} total={total} />
+                    <PaymentMethode paymentMethod={paymentMethod} cardDetails={cardDetails} handleInputChange={handleInputChange} total={total} handlePayment={handlePayment} />
 
                     <OrderSummary cardDetails={cardDetails} orderDetails={orderDetails} total={total} />
                 </div>

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Star, Zap, Battery, Truck, CheckCircle } from 'lucide-react';
+import React from 'react';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 

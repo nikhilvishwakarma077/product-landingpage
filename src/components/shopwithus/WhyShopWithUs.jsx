@@ -1,5 +1,4 @@
 import React from 'react';
-import { Shield, Banknote, BadgeCheck, RotateCcw } from 'lucide-react';
 import PageHeading from '../common/PageHeading';
 import BenefitCard from './BenefitCard';
 

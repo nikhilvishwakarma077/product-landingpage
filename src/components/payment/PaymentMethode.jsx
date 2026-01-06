@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CreditCard, Lock, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
-const PaymentMethode = ({ paymentMethod, cardDetails, handleInputChange, total }) => {
-    const navigate = useNavigate()
+const PaymentMethode = ({ paymentMethod, cardDetails, handleInputChange, total,handlePayment }) => {
+
 
     return (
         <div className="lg:col-span-2 space-y-6">
             <div className="mb-6">
                 <h1 className="text-3xl font-bold text-white mb-2">Payment Method</h1>
-
             </div>
-
 
             <div className={`bg-slate-800/40 backdrop-blur-sm border-2 rounded-2xl p-6 transition-all duration-300 ${paymentMethod === 'card' ? 'border-cyan-400' : 'border-slate-700/50'
                 }`}>
@@ -122,9 +119,7 @@ const PaymentMethode = ({ paymentMethod, cardDetails, handleInputChange, total }
             </div>
 
             <button className="w-full bg-cyan-500 hover:bg-cyan-400 text-white font-semibold text-lg py-4 rounded-xl transition-all duration-300  flex items-center justify-center gap-2 hover:cursor-pointer"
-                onClick={() => {
-                    navigate("/confirm")
-                }}
+                onClick={handlePayment}
             >
                 <Lock className="w-5 h-5" />
                 Pay Securely ${total.toFixed(2)}

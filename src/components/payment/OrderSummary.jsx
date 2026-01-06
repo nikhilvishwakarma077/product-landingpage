@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ShieldCheck } from 'lucide-react';
+import { images } from '../../data/appData';
 
 const OrderSummary = ({ orderDetails, total }) => {
 
@@ -12,7 +13,7 @@ const OrderSummary = ({ orderDetails, total }) => {
                 <div className="flex gap-4 mb-6 pb-6 border-b border-slate-700">
                     <div className="w-20 h-20 bg-slate-700 rounded-lg flex items-center justify-center">
                         <img
-                            src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczczLXBhaS0xNjMtbW9ja3VwLmpwZw.jpg"
+                            src={images.productImg}
                             alt="Product"
                             className="w-full h-full object-contain rounded"
                         />

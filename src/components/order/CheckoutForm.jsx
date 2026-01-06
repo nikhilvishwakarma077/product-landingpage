@@ -1,11 +1,9 @@
 import React from 'react';
 import { User, Phone, Mail, Lock, Shield,Home } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
-const CheckoutForm = ({formData,handleInputChange,subtotal,grandTotal}) => {
+const CheckoutForm = ({formData,handleInputChange,subtotal,grandTotal,proceedToPayment}) => {
 
-    const navigate = useNavigate()
-
+   
     return (
         <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-white mb-2">Customer Details</h2>
@@ -24,6 +22,7 @@ const CheckoutForm = ({formData,handleInputChange,subtotal,grandTotal}) => {
                             <input
                                 type="text"
                                 name="fullName"
+                                required
                                 value={formData.fullName}
                                 onChange={handleInputChange}
                                 placeholder="Virat Kohli"
@@ -143,9 +142,7 @@ const CheckoutForm = ({formData,handleInputChange,subtotal,grandTotal}) => {
             </div>
 
             <button className="w-full bg-cyan-500 hover:bg-cyan-400 text-white font-semibold text-lg py-4 rounded-xl transition-all duration-300  mb-4 flex items-center justify-center gap-2 hover:cursor-pointer"
-                onClick={() => {
-                    navigate("/payment")
-                }}
+                onClick={proceedToPayment}
             >
                 Proceed to Payment
                 <span>→</span>

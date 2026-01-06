@@ -24,9 +24,9 @@ const Cards = () => {
                 <hr className="border-[#3B4B54]" />
 
                 <div className="my-5 space-y-4">
-                    <Feature icon={<TbJumpRope />} title="Tangled wires" />
-                    <Feature icon={<MdBatteryCharging20 />} title="Low Battery Anxiety" />
-                    <Feature icon={<PiSmileySadLight />} title="Uncomfortable Fit" />
+                    <Feature icon={<TbJumpRope />} title="Tangled wires" text={"Wasting valuable time untangling cables every time you want to listen."}/>
+                    <Feature icon={<MdBatteryCharging20 />} title="Low Battery Anxiety" text={"Headphones dying in the middle of your favorite song or workout."} />
+                    <Feature icon={<PiSmileySadLight />} title="Uncomfortable Fit" text={"Hard plastic earbuds that cause pain and fatigue after just an hour."} />
                 </div>
             </div>
 
@@ -43,9 +43,9 @@ const Cards = () => {
                 <hr className="border-[#576972]" />
 
                 <div className="my-5 space-y-4">
-                    <Feature icon={<MdBluetoothConnected className="text-[#2BADEE]" />} title="Wireless Freedom" />
-                    <Feature icon={<AiFillThunderbolt className="text-[#2BADEE]" />} title="40-Hour Playtime" />
-                    <Feature icon={<FaCloud className="text-[#2BADEE]" />} title="Cloud-Soft Comfort" />
+                    <Feature icon={<MdBluetoothConnected className="text-[#2BADEE]" />} title="Wireless Freedom" text={"Instant Bluetooth 5.0 connection with zero lag for seamless audio."}  />
+                    <Feature icon={<AiFillThunderbolt className="text-[#2BADEE]" />} title="40-Hour Playtime" text={"All-day battery life plus rapid charging capabilities when you need it."} />
+                    <Feature icon={<FaCloud className="text-[#2BADEE]" />} title="Cloud-Soft Comfort" text={"Premium memory foam that molds to your ears for all-day listening."} />
                 </div>
 
                 <div className="flex flex-col gap-2">

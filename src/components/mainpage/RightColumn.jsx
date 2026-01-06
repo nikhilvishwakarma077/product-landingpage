@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Star, Zap, Battery, Truck, CheckCircle } from 'lucide-react';
-import PageHeading from '../common/PageHeading';
 import { useNavigate } from 'react-router-dom';
 
 const RightColumn = () => {
@@ -84,7 +83,6 @@ const RightColumn = () => {
                 </div>
             </div>
 
-            {/* Buy Button */}
             <button className="w-full bg-cyan-500 hover:bg-cyan-400 text-white font-semibold text-lg py-4 rounded-xl transition-all duration-300 mb-6"
                 onClick={() => {
                     navigate("/order")
@@ -93,7 +91,6 @@ const RightColumn = () => {
                 Buy Now - ₹1499
             </button>
 
-            {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                     <div key={index} className="flex items-center gap-2 text-cyan-400">
@@ -103,7 +100,6 @@ const RightColumn = () => {
                 ))}
             </div>
 
-            {/* Bottom Note */}
             <p className="text-slate-500 text-xs text-center mt-8">
                 Includes protective carrying case and braided USB-C cable.
             </p>

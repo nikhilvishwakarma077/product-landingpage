@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Zap, Battery, Truck, CheckCircle } from 'lucide-react';
+import { images } from "../../data/appData.js"
 
 const LeftColumn = () => {
+
     const [selectedImage, setSelectedImage] = useState(0);
 
-    const images = [
+    const imageTypes = [
         { type: 'product', alt: 'Headphones on stand' },
         { type: 'lifestyle', alt: 'Person wearing headphones' },
         { type: 'detail', alt: 'Headphones detail view' },
@@ -16,7 +17,7 @@ const LeftColumn = () => {
             <div className="bg-linear-to-br from-orange-400 via-orange-500 to-orange-600 rounded-3xl overflow-hidden aspect-square flex items-center justify-center">
                 <div className="relative w-full h-full flex items-center justify-center">
                     <img
-                        src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczczLXBhaS0xNjMtbW9ja3VwLmpwZw.jpg"
+                        src={images.productImg}
                         alt="Sonic Pro Wireless Headphones"
                         className="w-full h-full object-contain drop-shadow-2xl"
                     />
@@ -24,7 +25,7 @@ const LeftColumn = () => {
             </div>
 
             <div className="grid grid-cols-4 gap-3">
-                {images.map((image, index) => (
+                {imageTypes.map((image, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
@@ -41,7 +42,7 @@ const LeftColumn = () => {
                             </div>
                         ) : (
                             <img
-                                src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczczLXBhaS0xNTctbW9ja3VwLmpwZw.jpg"
+                                src={images.productImg2}
                                 alt={image.alt}
                                 className="w-full h-full object-cover"
                             />

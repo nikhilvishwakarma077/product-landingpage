@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { User, Phone, Mail, Home, Minus, Plus, CheckCircle, Battery, Bluetooth, Lock, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../layouts/Footer';
 import ProductDetails from './ProductDetails';
 import CheckoutForm from './CheckoutForm';
+import { toast } from 'react-toastify';
 
 const OrderPage = () => {
 
@@ -41,6 +41,21 @@ const OrderPage = () => {
         });
     };
 
+    const proceedToPayment = () => {
+
+        if (formData.fullName === '' || formData.phone === "" || formData.streetAddress === '' ||
+            formData.city === '' || formData.state === '' || formData.zipCode === ''
+        ) {
+            toast.error("All fields are required!")
+            return
+        }
+
+        console.log(formData)
+        navigate("/payment")
+
+    }
+
+
     return (
         <div className="min-h-screen bg-linear-to-b from-slate-900 via-slate-800 to-slate-900">
 
@@ -65,7 +80,7 @@ const OrderPage = () => {
 
                     <ProductDetails quantity={quantity} pricePerItem={pricePerItem} handleQuantityChange={handleQuantityChange} />
 
-                    <CheckoutForm formData={formData} handleInputChange={handleInputChange} subtotal={subtotal} grandTotal={grandTotal} />
+                    <CheckoutForm formData={formData} handleInputChange={handleInputChange} subtotal={subtotal} grandTotal={grandTotal} proceedToPayment={proceedToPayment} />
                 </div>
             </div>
 
