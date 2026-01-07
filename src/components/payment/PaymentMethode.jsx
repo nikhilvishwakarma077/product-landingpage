@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CreditCard, Lock, ShieldCheck } from 'lucide-react';
+import { AppContext } from '../../context/AppContext';
 
-const PaymentMethode = ({ paymentMethod, cardDetails, handleInputChange, total,handlePayment }) => {
+const PaymentMethode = ({ paymentMethod, cardDetails, handleInputChange, handlePayment }) => {
 
 
+    const { grandTotal } = useContext(AppContext)
     return (
         <div className="lg:col-span-2 space-y-6">
             <div className="mb-6">
@@ -122,7 +124,7 @@ const PaymentMethode = ({ paymentMethod, cardDetails, handleInputChange, total,h
                 onClick={handlePayment}
             >
                 <Lock className="w-5 h-5" />
-                Pay Securely ${total.toFixed(2)}
+                Pay Securely ${grandTotal.toFixed(2)}
             </button>
 
 

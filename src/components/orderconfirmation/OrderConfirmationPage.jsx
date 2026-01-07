@@ -1,20 +1,31 @@
-import React from 'react';
-import { CheckCircle} from 'lucide-react';
+import React, { useContext } from 'react';
+import { CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import OrderDetails from './OrderDetails';
+import { AppContext } from '../../context/AppContext';
 
 const OrderConfirmationPage = () => {
 
     const navigate = useNavigate()
+    const { setQuantity, setFormData } = useContext(AppContext)
 
-    const orderDetails = {
-        orderId: '#ORD-8492',
-        productName: 'SonicX Pro Wireless Headphones',
-        productColor: 'Midnight Blue',
-        amount: 1499.00,
-        paymentMethod: 'Visa ending in 4242',
-        shippingAddress: '456 Cyber City Road, DLF Phase II,'
-    };
+    const handleGoHome = () => {
+        setFormData({
+            fullName: '',
+            phone: '',
+            email: '',
+            streetAddress: '',
+            city: '',
+            state: '',
+            zipCode: '',
+            productName: "SonicPro Wireless Headphones",
+            color: "Midnight Blue",
+            model: "WH-1000XMS",
+            price: pricePerItem,
+        })
+        setQuantity(1)
+        navigate("/")
+    }
 
 
     return (
@@ -36,7 +47,7 @@ const OrderConfirmationPage = () => {
                     Thank you for your purchase. Here are order details.
                 </p>
 
-                <OrderDetails orderDetails={orderDetails} />
+                <OrderDetails />
 
                 <div className="text-center mb-8">
 

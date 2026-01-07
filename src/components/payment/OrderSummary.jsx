@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { images } from '../../data/appData';
+import { AppContext } from '../../context/AppContext';
 
-const OrderSummary = ({ orderDetails, total }) => {
+const OrderSummary = () => {
 
-
+    const { grandTotal, orderDetails, quantity } = useContext(AppContext)
     return (
         <div className="lg:col-span-1">
             <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 sticky top-20">
@@ -23,7 +24,7 @@ const OrderSummary = ({ orderDetails, total }) => {
                             {orderDetails.productName}
                         </h3>
                         <p className="text-slate-400 text-sm mb-2">Color: {orderDetails.color}</p>
-                        <p className="text-white font-bold">₹{orderDetails.price.toFixed(2)}</p>
+                        <p className="text-white font-bold">₹{orderDetails.price.toFixed(2)} x {quantity}</p>
                     </div>
                 </div>
 
@@ -31,16 +32,16 @@ const OrderSummary = ({ orderDetails, total }) => {
                     <div className=" mb-2">
                         <span className="text-slate-400 text-sm">SHIP TO</span>
                     </div>
-                    <p className="text-white font-semibold mb-1">Virat kohli</p>
-                    <p className="text-slate-400 text-sm">456 Cyber City Road, DLF Phase II,</p>
-                    <p className="text-slate-400 text-sm">Gurugram, Haryana 122002</p>
+                    <p className="text-white font-semibold mb-1">{orderDetails.fullName}</p>
+                    <p className="text-slate-400 text-sm">{orderDetails.streetAddress}</p>
+                    <p className="text-slate-400 text-sm">{orderDetails.city}, {orderDetails.state} {orderDetails.code}</p>
                 </div>
 
 
 
                 <div className="flex justify-between text-xl font-bold text-white pt-4 border-t border-slate-700 mb-6">
                     <span>Total</span>
-                    <span>₹{total.toFixed(2)}</span>
+                    <span>₹{grandTotal.toFixed(2)}</span>
                 </div>
 
                 <div className="bg-slate-700/30 rounded-lg p-4 flex gap-3">

@@ -1,9 +1,11 @@
-import React from 'react';
-import { User, Phone, Mail, Lock, Shield,Home } from 'lucide-react';
+import React, { useContext } from 'react';
+import { User, Phone, Mail, Lock, Shield, Home } from 'lucide-react';
+import { AppContext } from '../../context/AppContext';
 
-const CheckoutForm = ({formData,handleInputChange,subtotal,grandTotal,proceedToPayment}) => {
+const CheckoutForm = () => {
 
-   
+    const { formData, handleInputChange, subtotal, grandTotal,proceedToPayment } = useContext(AppContext)
+    
     return (
         <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-white mb-2">Customer Details</h2>

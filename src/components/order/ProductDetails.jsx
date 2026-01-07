@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Minus, Plus, CheckCircle, Battery, Bluetooth } from 'lucide-react';
 import { images } from '../../data/appData';
+import { AppContext } from '../../context/AppContext';
 
-const ProductDetails = ({ quantity, pricePerItem, handleQuantityChange }) => {
+const ProductDetails = () => {
+
+    const { quantity, pricePerItem, handleQuantityChange } = useContext(AppContext)
 
     return (
         <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
@@ -29,7 +32,8 @@ const ProductDetails = ({ quantity, pricePerItem, handleQuantityChange }) => {
 
                 <div className="flex items-center justify-between mb-6">
                     <div>
-                        <span className="text-slate-500 line-through text-lg mr-2">₹{(pricePerItem.toFixed(2)) * 2 + 1}</span>
+                        <span className="text-slate-500 line-through text-lg mr-2">
+                            ₹{(pricePerItem.toFixed(2)) * 2 + 1}</span>
                         <span className="text-3xl font-bold text-white">₹{pricePerItem.toFixed(2)}</span>
                     </div>
 

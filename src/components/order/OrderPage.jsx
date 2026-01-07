@@ -1,60 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import Footer from '../layouts/Footer';
 import ProductDetails from './ProductDetails';
 import CheckoutForm from './CheckoutForm';
-import { toast } from 'react-toastify';
 
 const OrderPage = () => {
-
-    const navigate = useNavigate()
-    const [quantity, setQuantity] = useState(1);
-    const [formData, setFormData] = useState({
-        fullName: '',
-        phone: '',
-        email: '',
-        streetAddress: '',
-        city: '',
-        state: '',
-        zipCode: ''
-    });
-
-    const pricePerItem = 1499.00;
-    const shipping = 0;
-
-
-    const subtotal = pricePerItem * quantity;
-    const grandTotal = subtotal + shipping;
-
-    const handleQuantityChange = (type) => {
-        if (type === 'increment') {
-            setQuantity(quantity + 1);
-        } else if (type === 'decrement' && quantity > 1) {
-            setQuantity(quantity - 1);
-        }
-    };
-
-    const handleInputChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const proceedToPayment = () => {
-
-        if (formData.fullName === '' || formData.phone === "" || formData.streetAddress === '' ||
-            formData.city === '' || formData.state === '' || formData.zipCode === ''
-        ) {
-            toast.error("All fields are required!")
-            return
-        }
-
-        console.log(formData)
-        navigate("/payment")
-
-    }
-
 
     return (
         <div className="min-h-screen bg-linear-to-b from-slate-900 via-slate-800 to-slate-900">
@@ -78,9 +27,8 @@ const OrderPage = () => {
             <div className="max-w-7xl mx-auto px-6 py-3">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-                    <ProductDetails quantity={quantity} pricePerItem={pricePerItem} handleQuantityChange={handleQuantityChange} />
-
-                    <CheckoutForm formData={formData} handleInputChange={handleInputChange} subtotal={subtotal} grandTotal={grandTotal} proceedToPayment={proceedToPayment} />
+                    <ProductDetails />
+                    <CheckoutForm />
                 </div>
             </div>
 
